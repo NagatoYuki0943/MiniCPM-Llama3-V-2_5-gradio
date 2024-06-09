@@ -7,3 +7,5 @@ einops
 sentencepiece
 tiktoken
 loguru
+huggingface-hub
+modelscope

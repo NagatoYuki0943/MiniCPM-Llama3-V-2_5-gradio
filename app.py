@@ -5,7 +5,7 @@ import threading
 from PIL import Image
 from loguru import logger
 import hashlib
-from huggingface_hub import hf_hub_download, snapshot_download
+from modelscope import snapshot_download
 from load_tokenizer_processor_and_model import load_tokenizer_processor_and_model, TransformersConfig
 from utils import convert_to_openai_history
 
@@ -15,9 +15,8 @@ logger.info(f"gradio version: {gr.__version__}")
 
 PRETRAINED_MODEL_NAME_OR_PATH = './models/MiniCPM-Llama3-V-2_5'
 snapshot_download(
-    repo_id = "openbmb/MiniCPM-Llama3-V-2_5",
+    model_id = "openbmb/MiniCPM-Llama3-V-2_5",
     local_dir = PRETRAINED_MODEL_NAME_OR_PATH,
-    max_workers = 8,
 )
 
 ADAPTER_PATH = None
