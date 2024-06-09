@@ -192,9 +192,7 @@ def main():
 
         with gr.Row(equal_height=True):
             with gr.Column(scale=15):
-                gr.Markdown("""<h1><center>🦙 LLaMA 3</center></h1>
-                    <center>🦙 MiniCPM-Llama3-V 💬</center>
-                    """)
+                gr.Markdown("""<h1><center>🦙 MiniCPM-Llama3-V-2_5 chat 💬</center></h1>""")
             # gr.Image(value=LOGO_PATH, scale=1, min_width=10,show_label=False, show_download_button=False)
 
         with gr.Row():
