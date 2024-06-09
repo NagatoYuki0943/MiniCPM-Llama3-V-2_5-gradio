@@ -7,7 +7,7 @@ from loguru import logger
 import hashlib
 from huggingface_hub import hf_hub_download, snapshot_download
 from load_tokenizer_processor_and_model import load_tokenizer_processor_and_model, TransformersConfig
-from infer_engine import convert_to_openai_history
+from utils import convert_to_openai_history
 
 
 logger.info(f"gradio version: {gr.__version__}")
