@@ -14,9 +14,6 @@ from dataclasses import dataclass
 from loguru import logger
 
 
-device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-
-
 @dataclass
 class TransformersConfig:
     pretrained_model_name_or_path: str
@@ -90,7 +87,6 @@ def load_tokenizer_processor_and_model(
         model = PeftModel.from_pretrained(model, config.adapter_path)
         logger.success(f"PeftModel load adapter successfully: {config.adapter_path}")
 
-    model.to(device)
     model.eval()
 
     logger.info(f"model.device: {model.device}, model.dtype: {model.dtype}")

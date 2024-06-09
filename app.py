@@ -1,10 +1,12 @@
 # 导入必要的库
+from math import pi
 import gradio as gr
 from typing import Generator, Sequence
 import threading
 from PIL import Image
 from loguru import logger
 import hashlib
+import torch
 from modelscope import snapshot_download
 from load_tokenizer_processor_and_model import load_tokenizer_processor_and_model, TransformersConfig
 from utils import convert_to_openai_history
@@ -35,7 +37,10 @@ TRANSFORMERS_CONFIG = TransformersConfig(
     system_prompt = SYSTEM_PROMPT
 )
 
+device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+logger.info(f"{device = }")
 tokenizer, processor, model = load_tokenizer_processor_and_model(config=TRANSFORMERS_CONFIG)
+model.to(device)
 
 
 class InterFace:
