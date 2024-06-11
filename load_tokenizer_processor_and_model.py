@@ -72,8 +72,8 @@ def load_tokenizer_processor_and_model(
             config.pretrained_model_name_or_path,
             torch_dtype = torch.bfloat16,
             trust_remote_code = True,
-            device_map = 'auto',
-            low_cpu_mem_usage = True,   # 是否使用低CPU内存,使用 device_map 参数必须为 True
+            # device_map = 'auto',
+            # low_cpu_mem_usage = True,   # 是否使用低CPU内存,使用 device_map 参数必须为 True
             quantization_config = quantization_config if config.load_in_8bit or config.load_in_4bit else None,
         )
         logger.success(f'AutoModel load successfully: {config.pretrained_model_name_or_path}')
