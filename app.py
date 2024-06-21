@@ -15,10 +15,12 @@ logger.info(f"gradio version: {gr.__version__}")
 
 
 PRETRAINED_MODEL_NAME_OR_PATH = './models/MiniCPM-Llama3-V-2_5'
-snapshot_download(
-    "openbmb/MiniCPM-Llama3-V-2_5",
-    local_dir = PRETRAINED_MODEL_NAME_OR_PATH,
-)
+os.system(f'git clone https://huggingface.co/openbmb/MiniCPM-Llama3-V-2_5 {PRETRAINED_MODEL_NAME_OR_PATH}')
+os.system(f'cd {PRETRAINED_MODEL_NAME_OR_PATH} && git lfs pull')
+# snapshot_download(
+#     "openbmb/MiniCPM-Llama3-V-2_5",
+#     local_dir = PRETRAINED_MODEL_NAME_OR_PATH,
+# )
 
 ADAPTER_PATH = None
 # 量化
